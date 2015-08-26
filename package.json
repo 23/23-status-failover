@@ -1,0 +1,26 @@
+{
+  "name": "23-status-failover",
+  "version": "0.1.0",
+  "description": "A barebones Node.js app to show a down page for 23 Video.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "~4.9.x"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/23/23-status-failover"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}

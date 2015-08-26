@@ -1,0 +1,8 @@
+{
+  "name": "23 Video Down Page",
+  "description": "A barebones Node.js app to show a down page for 23 Video.",
+  "repository": "https://github.com/23/23-status-failover",
+  "logo": "https://www.23video.com/resources/23-style/next/graphics/logo.png",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
