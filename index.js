@@ -21,7 +21,7 @@ function returnBlankCSS(request, response){
   response.send('/* nothing */');
 }
 app.get('/*.js', returnBlankJS);
-app.get('/*.css', returnBlankJS);
+app.get('/*.css', returnBlankCSS);
 app.get('/*.html', returnBlack);
 app.get('/*.ihtml', returnBlack);
 app.get('/*.ihtml/*', returnBlack);
