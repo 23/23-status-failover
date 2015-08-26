@@ -4,19 +4,26 @@ var fs = require('fs');
 app.set('port', (process.env.PORT || 5000));
 
 var messageHtml = fs.readFileSync('index.html');
+function writeHeaders(response){
+  response.set('Cache-Control', 'public, max-age=60');
+}
 function returnMessage(request, response){
+  writeHeaders(response);
   response.set('Content-Type', 'text/html');
   response.send(messageHtml);
 }
 function returnBlack(request, response){
+  writeHeaders(response);
   response.set('Content-Type', 'text/html');
   response.send('<html><head><style type="text/css">body {background-color:black;}</style></head><body>&nbps;</body></html>');
 }
 function returnBlankJS(request, response){
+  writeHeaders(response);
   response.set('Content-Type', 'application/javascript');
   response.send('// nothing');
 }
 function returnBlankCSS(request, response){
+  writeHeaders(response);
   response.set('Content-Type', 'text/css');
   response.send('/* nothing */');
 }
