@@ -4,6 +4,7 @@ var fs = require('fs');
 app.set('port', (process.env.PORT || 5000));
 
 var messageHtml = fs.readFileSync('index.html');
+var failoverHtml = fs.readFileSync('failover.html');
 function writeHeaders(response){
   response.set('Cache-Control', 'public, max-age=60');
 }
@@ -11,6 +12,11 @@ function returnMessage(request, response){
   writeHeaders(response);
   response.set('Content-Type', 'text/html');
   response.send(messageHtml);
+}
+function returnFailover(request, response){
+  writeHeaders(response);
+  response.set('Content-Type', 'text/html');
+  response.send(failoverHtml);
 }
 function returnBlack(request, response){
   writeHeaders(response);
@@ -27,6 +33,13 @@ function returnBlankCSS(request, response){
   response.set('Content-Type', 'text/css');
   response.send('/* nothing */');
 }
+function returnStatic(request, response){
+  writeHeaders(response);
+  response.set('Cache-Control', 'public, max-age=3600');
+  response.set('Content-Type', 'text/html');
+  
+}
+app.get('/failover/*', returnFailover);
 app.get('/*.js', returnBlankJS);
 app.get('/*.css', returnBlankCSS);
 app.get('/*.html', returnBlack);
